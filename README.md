@@ -47,7 +47,51 @@
 - API ключ OpenAI (получить на [платформе OpenAI](https://platform.openai.com/))
 - Токен провайдера платежей Telegram (для премиум-гаданий)
 
-## Установка и настройка
+## Деплой на Replit
+
+### 1. Импорт из GitHub
+
+1. Перейдите на [Replit](https://replit.com/)
+2. Нажмите "Create Repl"
+3. Выберите "Import from GitHub"
+4. Вставьте URL вашего репозитория
+5. Нажмите "Import from GitHub"
+
+### 2. Настройка переменных окружения в Replit
+
+1. В боковой панели Replit найдите раздел "Secrets" (🔒)
+2. Добавьте следующие переменные:
+
+```
+BOT_TOKEN=your_telegram_bot_token_here
+OPENAI_API_KEY=your_openai_api_key_here
+PREMIUM_READING_PRICE=50
+CURRENCY=XTR
+OPENAI_MODEL=gpt-4-turbo
+OPENAI_MAX_TOKENS=1000
+OPENAI_TEMPERATURE=0.7
+FREE_TEST_LIMIT=1
+FREE_USERS=123456789,987654321
+ANIMATION_DELAY_SHORT=0.5
+ANIMATION_DELAY_MEDIUM=1.0
+ANIMATION_DELAY_LONG=2.0
+DEBUG=False
+```
+
+### 3. Запуск на Replit
+
+1. Нажмите кнопку "Run" в верхней части экрана
+2. Replit автоматически установит зависимости из `requirements.txt`
+3. Бот запустится и будет готов к работе
+
+### 4. Настройка Always On (опционально)
+
+Для непрерывной работы бота:
+1. Перейдите в настройки Repl
+2. Включите "Always On"
+3. Это потребует Replit Core подписку
+
+## Локальная установка и настройка
 
 ### 1. Клонирование репозитория
 
@@ -95,10 +139,10 @@ WEBHOOK_PATH=/webhook                    # Только для продакше�
 WEBAPP_HOST=0.0.0.0                      # Только для продакшена с вебхуками
 WEBAPP_PORT=8000                         # Только для продакшена с вебхуками
 
-# Платежи
-PAYMENT_PROVIDER_TOKEN=your_payment_provider_token_here
-PREMIUM_READING_PRICE=299.0
-CURRENCY=RUB
+# Платежи через Telegram Stars
+PAYMENT_PROVIDER_TOKEN=  # Не используется для Telegram Stars
+PREMIUM_READING_PRICE=50.0  # Цена в Telegram Stars
+CURRENCY=XTR  # Telegram Stars
 
 # OpenAI
 OPENAI_API_KEY=your_openai_api_key_here
