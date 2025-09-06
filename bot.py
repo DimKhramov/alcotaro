@@ -10,6 +10,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from config import config
 from handlers.tarot import router as tarot_router, register_tarot_handlers
 from handlers.payments import router as payments_router, register_payment_handlers
+from keep_alive import keep_alive
 
 # Настройка логирования
 logging.basicConfig(
@@ -54,6 +55,9 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
+    # Запускаем keep_alive для Replit
+    keep_alive()
+    
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
